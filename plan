@@ -1,27 +1,43 @@
-So, missed the meeting today because of my sleep schedule.
+Okay, let's get serious now.
 
-It's okay, a bit late, all I have to do in 48 hours is :
+Here are my options, I have exactly 2 and a half days for this. So here are my options.
 
-plan A :
-1- Deploy a GPT.
-2- Handwrite enough data in Jordanian dialect so it can predict the upcoming words.
-3- Deploy a website that can take speech in Arabic, transcribe it using Google API (Not my fault Amazon doesn't have arabic yet)
-   and finally take that speech and pass it to GPT to predict the upcoming possible words and list them to the stutterer to help them out.
+A:
+    Help the stutterer complete his sentence by replacing hard to pronounce words with a list of alternatives on the fly.
+    This can be achieved using GPT2, I'm not quite sure few pages of Jordanian dialect is enough for a proof of concept.
 
-Plan B :
-Find a way to actually remove the stutter and return a clean voice. It should be easy, all I have to do is get an MFCC based neural network with enough data to remove stutter,
-oh it's very simple, all I have to do other than that is analyze the voice samples.
+    This will require the following part
+        1- lightsail instance for the webpage
+                this webpage will just open an audio stream to the transcriber which is gonna be google api since amazon transcribe doesn't support arabic let alone the jordanian accent.
+                    this part is easier said than done. It might be actually harder than the GPT2
+        2- figure enough of AWS archeticture to manage to deploy a GPT on it, damn that 7:30AM lecture would've been useful lol.
+        3- finally, send the sentence to GPT and predict possible completions.
+        4- send this list back to the webpage and display them for the stutterer.
+    And I just slowly realized I'm building a fancy autocomplete engine.. FML.
 
-FFS training either approach alone will take more than 48 hours.
+B:
+    Actually remove the stutter from the voice. Can be a .wav file. This way at least I won't have to deal with streams.
+    There is however one downside for this solution. I have no idea where to begin other than it would be MFCC and require a massive dataset
+    The chances of me pulling this off in 2 days are practically zero.
 
 
-Plan C :
-Go to sleep while mad at my professor for choosing this subject expecting that a delayed auditary solution has any chance of winning this thing.
-"Hey amazon, look, look, I made you a fancy voice recorder, can I have my 10k now?"
-Jk jk I love you Dr. Banna.
+wait wait wait. Actually there might be a way out of this mess that would actually solve the problem
 
-Ugh, I probably should be more professional given that this is being judged and all, but I doubt anyone will go to this first commit anyway.
-if you're reading this, Hi, sorry for wasting your time so far, I hope you have a sense of humor or I'm doomed, hopefully there will be other more impressive commits after and I won't look like a complete hopeless case.
-There is still hope, this thing can literally pay for my university.
-All I have to do is find a way to solve stuttering. LMFAO and FML. Eh, programming is problem solving after all. let's see.
+C: Do the auditary delayed thingy, It's scientifically proven to help. But augment it with a speech to text solution.
+    I'm not sure if this exactly qualifies as A.I, but both reading your words AND hearing delayed voice are proven to help stutterers.
+    It's still a fancy voice recorder augmented with a transcriber, but I hope that the other teams aren't doing much better.
+
+
+COME ON. THIS IS NOT THE TIME FOR BRAIN BLOCKS. HOW CAN I USE AI TO SOLVE STUTTERING IN 48 FREAKING HOURS.
+
+So much for a serious document.
+
+Wait, could i use facial ques to detect stuttering?
+yes, yes I could. And I can do it in 2 days, however it won't solve stuttering.
+mhmm.. how about activating the delayed auditary thingy whenever the AI detects a stutter?
+
+BTW, If you work in amazon and is reading this, I'm typing it because I remember something about having to commit often, I didn't attend the rules lecture so I might be mistaken. Sorry, but this helps me think and you have to endure it.
+
+Hahaha I have a feeling in the end I'll have to just make the fancy voice recorder and commit it in the last 2 hours.
+
 
