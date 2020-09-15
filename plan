@@ -60,3 +60,17 @@ AND THEN.. find the configuration that leads to the least amount of stutter?
 Okay, hold that though. Let's see if I can detect stutter to begin with. Back to reading.
 Wouldn't it be funny if I made a device that shocks the stutter once it detects stuttering? Could it work perhaps?
 LMFAO I'm so getting disqualified.
+
+
+---
+
+Okay, I'm getting somewhere. I think it is actually possible to do. I will only be able to train a very limited dataset
+as a proof of concept but it should be enough as a proof of concept.
+The way of doing it would be to repurpose audio separation neural networks but training them with this dataset.
+Usually these solutions are used to separate vocals from instruments. However since natural stuttering is very distinct
+from normal speech (different amplitute) IT CAN work. No one ever did it that way before, I hope it's not because it can't
+work hahaha.
+
+Amazon sagemaker, don't let me down.
+
+
