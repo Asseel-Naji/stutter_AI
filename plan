@@ -40,5 +40,17 @@ BTW, If you work in amazon and is reading this, I'm typing it because I remember
 
 Hahaha I have a feeling in the end I'll have to just make the fancy voice recorder and commit it in the last 2 hours.
 
+Ok so after quick experimntation, it's not as easy as I assumed to transcribe arabic audio on the fly using python.
+There is no solution anywhere online that does that. The only one is made for android and using it would complicate things
+even further.
 
+So, YOLO, let's try to actually remove the stutter from an audio file.
+
+The only thing I hate is that in the end, if I pull it off, it won't look that impressive in the demo video.
+I'm quite sure the winner will be someone who made a face recognition app that tell you if you're happy or sthn.
+No one will notice that for what I'm doing, there is almost non-existent solutions online that I can borrow from.
+For whoever is reading this mess. I love you. Please feel my pain. I promise I will put more work than copy pasting a face recognition NN.
+
+
+Let's see how it goes. No going back now.
 
