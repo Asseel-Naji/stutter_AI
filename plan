@@ -1,0 +1,27 @@
+So, missed the meeting today because of my sleep schedule.
+
+It's okay, a bit late, all I have to do in 48 hours is :
+
+plan A :
+1- Deploy a GPT.
+2- Handwrite enough data in Jordanian dialect so it can predict the upcoming words.
+3- Deploy a website that can take speech in Arabic, transcribe it using Google API (Not my fault Amazon doesn't have arabic yet)
+   and finally take that speech and pass it to GPT to predict the upcoming possible words and list them to the stutterer to help them out.
+
+Plan B :
+Find a way to actually remove the stutter and return a clean voice. It should be easy, all I have to do is get an MFCC based neural network with enough data to remove stutter,
+oh it's very simple, all I have to do other than that is analyze the voice samples.
+
+FFS training either approach alone will take more than 48 hours.
+
+
+Plan C :
+Go to sleep while mad at my professor for choosing this subject expecting that a delayed auditary solution has any chance of winning this thing.
+"Hey amazon, look, look, I made you a fancy voice recorder, can I have my 10k now?"
+Jk jk I love you Dr. Banna.
+
+Ugh, I probably should be more professional given that this is being judged and all, but I doubt anyone will go to this first commit anyway.
+if you're reading this, Hi, sorry for wasting your time so far, I hope you have a sense of humor or I'm doomed, hopefully there will be other more impressive commits after and I won't look like a complete hopeless case.
+There is still hope, this thing can literally pay for my university.
+All I have to do is find a way to solve stuttering. LMFAO and FML. Eh, programming is problem solving after all. let's see.
+
