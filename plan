@@ -73,4 +73,16 @@ work hahaha.
 
 Amazon sagemaker, don't let me down.
 
+---
 
+Okay, finally the hard part is done, the model is training on 10 dataset as a proof of concept for the proof of concept until I finish processing the rest of
+of the dataset and finally I can start working on the easy part. Let's make an API baby!
+
+
+references :
+https://arxiv.org/pdf/1804.09202.pdf
+https://towardsdatascience.com/audio-ai-isolating-vocals-from-stereo-music-using-convolutional-neural-networks-210532383785
+https://sigsep.github.io/datasets/musdb.html#musdb18-compressed-stems
+https://www.youtube.com/watch?v=rw04IXYpQgQ&t=66s
+https://github.com/tsurumeso/vocal-remover
+https://github.com/deezer/spleeter?_lrsc=f97ec62b-78ff-446e-9f08-c9b2d8a8f55e
