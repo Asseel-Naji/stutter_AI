@@ -27,6 +27,7 @@ class AudioLink(Resource):
 
         inference_api.main(False) # PLEASE CHANGE THIS HORRINDOUS THING INTO A SUBPROCESS AND DELETE THAT ABOMINATION
         print("done")
+        return("success")
 
 api.add_resource(AudioLink, '/al') # This endpoint receives a direct wav URL
 
