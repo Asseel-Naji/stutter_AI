@@ -41,10 +41,10 @@ class AudioLink(Resource):
         
         print(p.read())
         print('transcribing')
-        # try:
-        transcription = transcribe.transcribe_file('cleaned.wav')
-        # except:
-        #     return('can\'t transcribe the file')
+        try:
+            transcription = transcribe.transcribe_file('cleaned.wav')
+        except:
+            return('Please choose a file with a sample rate of an 8000 multiplication (16000,32000), reverting to last cached audio')
 
         return("Transcription : " + transcription)
 
