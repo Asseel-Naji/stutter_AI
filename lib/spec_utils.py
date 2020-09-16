@@ -154,9 +154,10 @@ def cache_or_load(mix_path, inst_path, sr, hop_length, n_fft):
             mix_path, sr, False, dtype=np.float32, res_type='kaiser_fast')
         y, _ = librosa.load(
             inst_path, sr, False, dtype=np.float32, res_type='kaiser_fast')
-
-        X, y = align_wave_head_and_tail(X, y, sr)
-
+        try:
+            X, y = align_wave_head_and_tail(X, y, sr)
+        except IndexError:
+            raise Exception("Make sure your dataset is in stereo format and has two tracks.")
         X = wave_to_spectrogram(X, hop_length, n_fft)
         y = wave_to_spectrogram(y, hop_length, n_fft)
 
