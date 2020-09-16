@@ -139,11 +139,11 @@ def main():
         pred = spec_utils.mask_silence(pred, pred_inv)
         print('done')
 
-    print('inverse stft of instruments...', end=' ')
+    print('inverse stft of Stutter...', end=' ')
     y_spec = pred * X_phase
     wave = spec_utils.spectrogram_to_wave(y_spec, hop_length=args.hop_length)
     print('done')
-    sf.write('{}_Instruments.wav'.format(basename), wave.T, sr)
+    sf.write('{}_Stutter.wav'.format(basename), wave.T, sr)
 
     print('inverse stft of vocals...', end=' ')
     v_spec = np.clip(X_mag - pred, 0, np.inf) * X_phase
@@ -152,7 +152,7 @@ def main():
     sf.write('{}_Vocals.wav'.format(basename), wave.T, sr)
 
     if args.output_image:
-        with open('{}_Instruments.jpg'.format(basename), mode='wb') as f:
+        with open('{}_Stutter.jpg'.format(basename), mode='wb') as f:
             image = spec_utils.spectrogram_to_image(y_spec)
             _, bin_image = cv2.imencode('.jpg', image)
             bin_image.tofile(f)
