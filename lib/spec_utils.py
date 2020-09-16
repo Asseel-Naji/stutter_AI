@@ -157,6 +157,8 @@ def cache_or_load(mix_path, inst_path, sr, hop_length, n_fft):
         try:
             X, y = align_wave_head_and_tail(X, y, sr)
         except IndexError:
+            # This error gets raised if your dataset has one-track mono wav files.
+            # there might be other triggers.
             raise Exception("Make sure your dataset is in stereo format and has two tracks.")
         X = wave_to_spectrogram(X, hop_length, n_fft)
         y = wave_to_spectrogram(y, hop_length, n_fft)
