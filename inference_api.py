@@ -120,8 +120,8 @@ def main(self, gpu=False):
 
     print('loading wave source...', end=' ')
     X, sr = librosa.load(
-        "audio.wav", args.sr, False, dtype=np.float32, res_type='kaiser_fast')
-    basename = os.path.splitext(os.path.basename("audio.wav"))[0]
+        "cleaned.wav", args.sr, False, dtype=np.float32, res_type='kaiser_fast')
+    basename = os.path.splitext(os.path.basename("cleaned.wav"))[0]
     print('done')
 
     if X.ndim == 1:

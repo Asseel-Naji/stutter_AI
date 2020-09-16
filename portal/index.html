@@ -63,9 +63,14 @@
                     Clean
                   </button>
                 </div>
-                <div id="response" class="mx-auto" role="alert">
+                <div id="response" class="col-md-10" role="alert">
                 <br>
                   <pre></pre>
+                </div>
+                <br>
+                <div id="download" class="col-md-10 alert alert-info" style="visibility:hidden;">
+                
+                <a href="../cleaned_Vocals.wav"> Download the audio file from here.</a>
                 </div>
               </div>
             </form>
@@ -147,6 +152,7 @@
               $("#response pre").addClass("alert-success");
 
               $("#response pre").html(data);
+              $("#download").css("visibility", "visible");
               $("#btn").attr("disabled", false);
             },
             error: function (jqXhr, textStatus, errorThrown) {
