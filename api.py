@@ -6,7 +6,8 @@ from flask_restful import Resource, Api
 from flask_cors import CORS
 import json
 import wget
-
+import inference_api
+import os
 
 app = Flask(__name__)
 api = Api(app)
@@ -18,10 +19,14 @@ class AudioLink(Resource):
     def post(self):
         print('received {}'.format(request.json))
         url = request.json["audio"]
+        if os.path.exists("demofile.txt"):
+            os.remove("demofile.txt")
         print('beggening download of {}'.format(url))
-        wget.download(url, "audio.wav")
+        wget.download(url, "audio.wav") # please remember to change this with a subprocess
         print('downloaded succesfully')
 
+        inference_api.main(False) # PLEASE CHANGE THIS HORRINDOUS THING INTO A SUBPROCESS AND DELETE THAT ABOMINATION
+        print("done")
 
 api.add_resource(AudioLink, '/al') # This endpoint receives a direct wav URL
 
