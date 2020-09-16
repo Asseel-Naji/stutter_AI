@@ -18,7 +18,7 @@ if __name__ == '__main__':
     p.add_argument('--n_fft', '-f', type=int, default=2048)
     p.add_argument('--pitch', '-p', type=int, default=-1)
     p.add_argument('--mixtures', '-m', required=True)
-    p.add_argument('--instruments', '-i', required=True)
+    p.add_argument('--stutters', '-i', required=True)
     args = p.parse_args()
 
     input_i = 'input_i_{}.wav'.format(args.pitch)
@@ -31,25 +31,25 @@ if __name__ == '__main__':
 
     cache_dir = 'sr{}_hl{}_nf{}'.format(args.sr, args. hop_length, args.n_fft)
     mix_cache_dir = os.path.join(args.mixtures, cache_dir)
-    inst_cache_dir = os.path.join(args.instruments, cache_dir)
+    sttr_cache_dir = os.path.join(args.stutters, cache_dir)
     os.makedirs(mix_cache_dir, exist_ok=True)
-    os.makedirs(inst_cache_dir, exist_ok=True)
+    os.makedirs(sttr_cache_dir, exist_ok=True)
 
-    filelist = dataset.make_pair(args.mixtures, args.instruments)
-    for mix_path, inst_path in tqdm(filelist):
+    filelist = dataset.make_pair(args.mixtures, args.stutters)
+    for mix_path, sttr_path in tqdm(filelist):
         mix_basename = os.path.splitext(os.path.basename(mix_path))[0]
         mix_cache_path = os.path.join(mix_cache_dir, mix_basename + cache_suffix)
 
-        inst_basename = os.path.splitext(os.path.basename(inst_path))[0]
-        inst_cache_path = os.path.join(inst_cache_dir, inst_basename + cache_suffix)
+        sttr_basename = os.path.splitext(os.path.basename(sttr_path))[0]
+        sttr_cache_path = os.path.join(sttr_cache_dir, sttr_basename + cache_suffix)
 
-        if os.path.exists(mix_cache_path) and os.path.exists(inst_cache_path):
+        if os.path.exists(mix_cache_path) and os.path.exists(sttr_cache_path):
             continue
 
         X, _ = librosa.load(
             mix_path, args.sr, False, dtype=np.float32, res_type='kaiser_fast')
         y, _ = librosa.load(
-            inst_path, args.sr, False, dtype=np.float32, res_type='kaiser_fast')
+            sttr_path, args.sr, False, dtype=np.float32, res_type='kaiser_fast')
 
         X, _ = librosa.effects.trim(X)
         y, _ = librosa.effects.trim(y)
@@ -71,7 +71,7 @@ if __name__ == '__main__':
         np.save(mix_cache_path, spec)
 
         spec = spec_utils.get_spectrogram(y, args.hop_length, args.n_fft)
-        np.save(inst_cache_path, spec)
+        np.save(sttr_cache_path, spec)
 
         os.remove(input_i)
         os.remove(input_v)

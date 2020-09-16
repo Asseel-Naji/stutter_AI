@@ -133,27 +133,27 @@ def align_wave_head_and_tail(a, b, sr):
     return a, b
 
 
-def cache_or_load(mix_path, inst_path, sr, hop_length, n_fft):
+def cache_or_load(mix_path, sttr_path, sr, hop_length, n_fft):
     mix_basename = os.path.splitext(os.path.basename(mix_path))[0]
-    inst_basename = os.path.splitext(os.path.basename(inst_path))[0]
+    sttr_basename = os.path.splitext(os.path.basename(sttr_path))[0]
 
     cache_dir = 'sr{}_hl{}_nf{}'.format(sr, hop_length, n_fft)
     mix_cache_dir = os.path.join(os.path.dirname(mix_path), cache_dir)
-    inst_cache_dir = os.path.join(os.path.dirname(inst_path), cache_dir)
+    sttr_cache_dir = os.path.join(os.path.dirname(sttr_path), cache_dir)
     os.makedirs(mix_cache_dir, exist_ok=True)
-    os.makedirs(inst_cache_dir, exist_ok=True)
+    os.makedirs(sttr_cache_dir, exist_ok=True)
 
     mix_cache_path = os.path.join(mix_cache_dir, mix_basename + '.npy')
-    inst_cache_path = os.path.join(inst_cache_dir, inst_basename + '.npy')
+    sttr_cache_path = os.path.join(sttr_cache_dir, sttr_basename + '.npy')
 
-    if os.path.exists(mix_cache_path) and os.path.exists(inst_cache_path):
+    if os.path.exists(mix_cache_path) and os.path.exists(sttr_cache_path):
         X = np.load(mix_cache_path)
-        y = np.load(inst_cache_path)
+        y = np.load(sttr_cache_path)
     else:
         X, _ = librosa.load(
             mix_path, sr, False, dtype=np.float32, res_type='kaiser_fast')
         y, _ = librosa.load(
-            inst_path, sr, False, dtype=np.float32, res_type='kaiser_fast')
+            sttr_path, sr, False, dtype=np.float32, res_type='kaiser_fast')
         try:
             X, y = align_wave_head_and_tail(X, y, sr)
         except IndexError:
@@ -165,7 +165,7 @@ def cache_or_load(mix_path, inst_path, sr, hop_length, n_fft):
 
         _, ext = os.path.splitext(mix_path)
         np.save(mix_cache_path, X)
-        np.save(inst_cache_path, y)
+        np.save(sttr_cache_path, y)
 
     return X, y
 

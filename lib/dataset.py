@@ -29,7 +29,7 @@ class VocalRemoverValidationSet(torch.utils.data.Dataset):
         return X_mag, y_mag
 
 
-def make_pair(mix_dir, inst_dir):
+def make_pair(mix_dir, sttr_dir):
     input_exts = ['.wav', '.m4a', '.mp3', '.mp4', '.flac']
 
     X_list = sorted([
@@ -37,8 +37,8 @@ def make_pair(mix_dir, inst_dir):
         for fname in os.listdir(mix_dir)
         if os.path.splitext(fname)[1] in input_exts])
     y_list = sorted([
-        os.path.join(inst_dir, fname)
-        for fname in os.listdir(inst_dir)
+        os.path.join(sttr_dir, fname)
+        for fname in os.listdir(sttr_dir)
         if os.path.splitext(fname)[1] in input_exts])
 
     filelist = list(zip(X_list, y_list))
@@ -50,7 +50,7 @@ def train_val_split(dataset_dir, split_mode, val_rate, val_filelist):
     if split_mode == 'random':
         filelist = make_pair(
             os.path.join(dataset_dir, 'mixtures'),
-            os.path.join(dataset_dir, 'instruments'))
+            os.path.join(dataset_dir, 'stutters'))
 
         random.shuffle(filelist)
 
@@ -68,11 +68,11 @@ def train_val_split(dataset_dir, split_mode, val_rate, val_filelist):
 
         train_filelist = make_pair(
             os.path.join(dataset_dir, 'training/mixtures'),
-            os.path.join(dataset_dir, 'training/instruments'))
+            os.path.join(dataset_dir, 'training/stutters'))
 
         val_filelist = make_pair(
             os.path.join(dataset_dir, 'validation/mixtures'),
-            os.path.join(dataset_dir, 'validation/instruments'))
+            os.path.join(dataset_dir, 'validation/stutters'))
 
     return train_filelist, val_filelist
 
@@ -92,7 +92,7 @@ def augment(X, y, reduction_rate, reduction_mask, mixup_rate, mixup_alpha):
             X[idx] = X[idx].mean(axis=0, keepdims=True)
             y[idx] = y[idx].mean(axis=0, keepdims=True)
         if np.random.uniform() < 0.02:
-            # inst
+            # sttr
             X[idx] = y[idx]
 
         if np.random.uniform() < mixup_rate and i < len(perm) - 1:
