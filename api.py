@@ -19,8 +19,8 @@ class AudioLink(Resource):
     def post(self):
         print('received {}'.format(request.json))
         url = request.json["audio"]
-        if os.path.exists("demofile.txt"):
-            os.remove("demofile.txt")
+        if os.path.exists("audio.wav"):
+            os.remove("audio.wav")
         print('beggening download of {}'.format(url))
         wget.download(url, "audio.wav") # please remember to change this with a subprocess
         print('downloaded succesfully')
