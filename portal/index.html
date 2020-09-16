@@ -57,6 +57,7 @@
                 <div class="col-12 col-md-3">
                   <button
                     type="submit"
+                    id="btn"
                     class="btn btn-block btn-lg btn-primary"
                   >
                     Clean
@@ -132,6 +133,7 @@
     <script>
       (function ($) {
         function processForm(e) {
+          $("#btn").attr("disabled", true);
           $("#response pre").addClass("alert alert-info");
            $("#response pre").html("processing");
           $.ajax({
@@ -145,6 +147,7 @@
               $("#response pre").addClass("alert-success");
 
               $("#response pre").html(data);
+              $("#btn").attr("disabled", false);
             },
             error: function (jqXhr, textStatus, errorThrown) {
               console.log(errorThrown);
