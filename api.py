@@ -8,6 +8,8 @@ import json
 import wget
 import inference_api
 import os
+import transcribe
+import stetomono
 
 app = Flask(__name__)
 api = Api(app)
@@ -26,8 +28,22 @@ class AudioLink(Resource):
         print('downloaded succesfully')
 
         inference_api.main(False) # PLEASE CHANGE THIS HORRINDOUS THING INTO A SUBPROCESS AND DELETE THAT ABOMINATION
-        print("done")
-        return("success")
+        print('done with the NN')
+        # print('converting to mono')
+        # try:
+        #     stetomono.to_mono()
+        # except:
+        #     return('can\'t convert to mono for some reason.')
+        print('cleaning')
+        p = os.popen('python3 silenceremover.py 3 audio_Vocals.wav') # creats cleaned.wav
+        print(p.read())
+        print('transcribing')
+        try:
+            transcription = transcribe.transcribe_file('cleaned.wav')
+        except:
+            return('can\'t transcribe the file')
+
+        return("Transcription : " + transcription)
 
 api.add_resource(AudioLink, '/al') # This endpoint receives a direct wav URL
 

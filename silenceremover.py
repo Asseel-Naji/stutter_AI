@@ -143,8 +143,10 @@ def main(args):
 
     joinedaudio = b"".join(concataudio)
 
-    write_wave("Non-Silenced-Audio.wav", joinedaudio, sample_rate)
+    write_wave("cleaned.wav", joinedaudio, sample_rate)
 
 
 if __name__ == '__main__':
     main(sys.argv[1:])
+
+
