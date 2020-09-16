@@ -62,6 +62,9 @@ python inference.py --input path/to/an/audio/file
 ```
 python inference.py --input path/to/an/audio/file --gpu 0
 ```
+## Web page usage
+install nginx
+add rule to aws to allow 80
 
 references
 https://github.com/StartBootstrap/startbootstrap-landing-page
