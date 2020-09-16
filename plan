@@ -33,7 +33,7 @@ COME ON. THIS IS NOT THE TIME FOR BRAIN BLOCKS. HOW CAN I USE AI TO SOLVE STUTTE
 So much for a serious document.
 
 Wait, could i use facial ques to detect stuttering?
-yes, yes I could. And I can do it in 2 days, however it won't solve stuttering.
+yes, yes I could. And I can do it in 2 days (post note:that was a joke), however it won't solve stuttering.
 mhmm.. how about activating the delayed auditary thingy whenever the AI detects a stutter?
 
 BTW, If you work in amazon and is reading this, I'm typing it because I remember something about having to commit often, I didn't attend the rules lecture so I might be mistaken. Sorry, but this helps me think and you have to endure it.
@@ -78,6 +78,21 @@ Amazon sagemaker, don't let me down.
 Okay, finally the hard part is done, the model is training on 10 dataset as a proof of concept for the proof of concept until I finish processing the rest of
 of the dataset and finally I can start working on the easy part. Let's make an API baby!
 
+---
+
+so here is how it's gonna go :
+API:
+1- Flask API that takes a link to a wav file.
+2- This triggers the NN to clean the file.
+3- return the cleaned data.
+4- Drink another redbull.
+Portal:
+1- A page that takes a link to a wav file.
+2- sends said link to the api.
+3- return the link to the cleaned data.
+if time allows make it fancy such as 1- in browser recording and playing.
+
+let's rock!
 
 references :
 https://arxiv.org/pdf/1804.09202.pdf

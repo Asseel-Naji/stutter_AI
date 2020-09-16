@@ -39,6 +39,7 @@ Hopefully by the time the teckathon ends this will be empty :
 
 ### Create an EC2 GPU instance.
 The bigger, the better.
+Tested on "Deep Learning AMI (Ubuntu 18.04) Version 34.0" | "g2.2xlarge"
 ### Start a pytorch environment 
 ```
 source activate pytorch_latest_p36
