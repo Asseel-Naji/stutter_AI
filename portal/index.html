@@ -132,6 +132,7 @@
     <script>
       (function ($) {
         function processForm(e) {
+          $("#response pre").addClass("alert alert-info");
            $("#response pre").html("processing");
           $.ajax({
             url: "http://127.0.0.1:5333/al",
@@ -140,6 +141,9 @@
             contentType: "application/json",
             data: JSON.stringify({ audio: $("#audio-url").val() }),
             success: function (data, textStatus, jQxhr) {
+              $("#response pre").removeClass("alert-info");
+              $("#response pre").addClass("alert-success");
+
               $("#response pre").html(data);
             },
             error: function (jqXhr, textStatus, errorThrown) {

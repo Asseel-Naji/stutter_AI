@@ -65,3 +65,4 @@ python inference.py --input path/to/an/audio/file --gpu 0
 
 references
 https://github.com/StartBootstrap/startbootstrap-landing-page
+https://www.pxfuel.com/en/free-photo-xvyjk
