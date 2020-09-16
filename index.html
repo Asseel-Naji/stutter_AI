@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>jQuery AJAX POST Form</title>
+    <title>Main</title>
     <meta charset="utf-8" />
     <script
       type="text/javascript"
@@ -14,7 +14,7 @@
       <pre></pre>
     </div>
 
-    <form id="form">
+    <form id="my-form">
       <input
         type="text"
         id="audio-url"
@@ -33,7 +33,7 @@
             dataType: "json",
             type: "post",
             contentType: "application/json",
-            data: JSON.stringify({ audio: "testing" }),
+            data: JSON.stringify({ audio: $("#audio-url").val() }),
             success: function (data, textStatus, jQxhr) {
               $("#response pre").html(data);
             },
@@ -45,7 +45,7 @@
           e.preventDefault();
         }
 
-        $("#form").submit(processForm);
+        $("#my-form").submit(processForm);
       })(jQuery);
     </script>
   </body>
