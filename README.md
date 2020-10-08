@@ -1,3 +1,7 @@
+This project won the first place in Amazon Teckathon 2020 : https://www.youtube.com/watch?v=X0TjLdDO2CY&t=941s
+
+Thanks to everyone at the Amazon Team.
+
 # stutter_AI
 This solution aims to help stutterers get a cleaned version of their speech, the aim of this project is to advance voice assitance to cover the %1 of the population who find difficulty using any voice assitance solution (ex. Alexa, Google, Siri..etc) and they have a very hard time using STT in general.
 
